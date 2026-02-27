@@ -45,7 +45,21 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     df["date"] = _to_datetime_safe(df, "date")
     df = df.dropna(subset=["date"])
 
-    df["amount"] = pd.to_numeric(df["amount"], errors="coerce").fillna(0).astype(int)
+    #df["amount"] = pd.to_numeric(df["amount"], errors="coerce").fillna(0).astype(int)
+    df["date"] = _to_datetime_safe(df, "date")
+    df = df.dropna(subset=["date"])
+    
+    # 👇 여기만 교체
+    df["amount"] = (
+        df["amount"]
+        .astype(str)
+        .str.replace(",", "", regex=False)
+        .str.replace("원", "", regex=False)
+    )
+    
+    df["amount"] = pd.to_numeric(df["amount"], errors="coerce")
+    df = df.dropna(subset=["amount"])
+    df["amount"] = df["amount"].astype(int)
 
     # 연/월 컬럼
     df["year"] = df["date"].dt.year.astype(int)
@@ -797,3 +811,4 @@ if st.button("📄 리포트 생성"):
         mime="text/markdown",
 
     )
+
