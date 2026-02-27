@@ -98,10 +98,10 @@ expense-dashboard/
 ## ⚙️ 실행 방법 (로컬)
 
 ### 1. 패키지 설치
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 ### 2. 실행
-streamlit run app.py
+```streamlit run app.py```
 
 
 ---
