@@ -85,12 +85,13 @@ AI가 다음 항목을 분석합니다:
 ---
 
 ## 📂 프로젝트 구조
-```expense-dashboard/
+```
+expense-dashboard/
 ├── app.py                 # 메인 Streamlit 앱
 ├── requirements.txt       # 의존성 목록
 ├── README.md              # 프로젝트 설명
-├── expense_all_data.csv   # 샘플 데이터```
-
+├── expense_all_data.csv   # 샘플 데이터
+```
 
 ---
 
