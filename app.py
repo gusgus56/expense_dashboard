@@ -787,7 +787,7 @@ if st.button("📄 리포트 생성"):
         budget_df=st.session_state.get("budget_table", None),
     )
 
-    st.markdown("### 📋 월간 지출 리포트")
+    
     st.markdown(report)
 
     st.download_button(
@@ -795,4 +795,5 @@ if st.button("📄 리포트 생성"):
         data=report,
         file_name=f"expense_report_{pd.Timestamp.now().strftime('%Y%m%d')}.md",
         mime="text/markdown",
+
     )
